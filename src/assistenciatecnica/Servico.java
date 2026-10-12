@@ -3,8 +3,9 @@ package assistenciatecnica;
 import java.time.LocalDate;
 
 public class Servico {
-
-    private int id;
+	private static int proxId = 1;
+	
+    private int id = proxId++;
     private String descricao;
     private double valor;
     private boolean realizado;
@@ -13,12 +14,11 @@ public class Servico {
     public Servico() {
     }
 
-    public Servico(int id, String descricao, double valor, boolean realizado, LocalDate dataRealizacao) {
-        this.id = id;
+    public Servico(String descricao, double valor) {
         this.descricao = descricao;
         this.valor = valor;
-        this.realizado = realizado;
-        this.dataRealizacao = dataRealizacao;
+        this.realizado = false;
+        this.dataRealizacao = null;
     }
 
     public boolean isRealizado() {
@@ -26,6 +26,19 @@ public class Servico {
     }
     public String getDescricao() {
         return descricao;
+       
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public LocalDate getDataRealizacao() {
+        return dataRealizacao;
     }
     public void realizarServico() {
         this.realizado = true;
